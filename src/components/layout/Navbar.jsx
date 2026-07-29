@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  
+  const [role, setRole] = useState(null);
+  const [userName, setUserName] = useState('');
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,6 +21,31 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    setRole(localStorage.getItem('user_role'));
+    setUserName(localStorage.getItem('user_name') || '');
+  }, [location.pathname]);
+
+  const handleLogout = () => {
+    localStorage.clear();
+    setRole(null);
+    setUserName('');
+    setIsMenuOpen(false);
+    setIsDropdownOpen(false);
+  };
+
+  const getDashboardLink = () => {
+    if (role === 'admin') return '/admin-paneli';
+    if (role === 'merchant') return '/esnaf-paneli';
+    return '/uye-paneli';
+  };
+
+  const getRoleName = () => {
+    if (role === 'admin') return 'Yönetici';
+    if (role === 'merchant') return 'Esnaf Paneli';
+    return 'Hesabım';
+  };
 
   return (
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`} id="navbar">
@@ -39,27 +68,55 @@ const Navbar = () => {
           <li>
             <a href="/#nasil-calisir" onClick={() => setIsMenuOpen(false)}>Nasıl Çalışır?</a>
           </li>
-          <li className={`dropdown ${isDropdownOpen ? 'active' : ''}`}>
-            <a 
-              href="#" 
-              className="dropdown-toggle" 
-              id="navDropdownToggle"
-              onClick={(e) => {
-                e.preventDefault();
-                setIsDropdownOpen(!isDropdownOpen);
-              }}
-            >
-              Giriş Yap <span style={{ fontSize: '0.8em' }}>▼</span>
-            </a>
-            <ul className="dropdown-menu">
-              <li>
-                <Link to="/uye-giris" onClick={() => { setIsMenuOpen(false); setIsDropdownOpen(false); }}>Üye Girişi</Link>
-              </li>
-              <li>
-                <Link to="/esnaf-giris" onClick={() => { setIsMenuOpen(false); setIsDropdownOpen(false); }}>Esnaf Girişi</Link>
-              </li>
-            </ul>
-          </li>
+
+          {role ? (
+            <li className={`dropdown ${isDropdownOpen ? 'active' : ''}`}>
+              <a 
+                href="#" 
+                className="dropdown-toggle" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  setIsDropdownOpen(!isDropdownOpen);
+                }}
+              >
+                👤 {userName || getRoleName()} <span style={{ fontSize: '0.8em' }}>▼</span>
+              </a>
+              <ul className="dropdown-menu">
+                <li>
+                  <Link to={getDashboardLink()} onClick={() => { setIsMenuOpen(false); setIsDropdownOpen(false); }}>
+                    Paneli Aç
+                  </Link>
+                </li>
+                <li>
+                  <a href="#" onClick={(e) => { e.preventDefault(); handleLogout(); }}>
+                    Çıkış Yap
+                  </a>
+                </li>
+              </ul>
+            </li>
+          ) : (
+            <li className={`dropdown ${isDropdownOpen ? 'active' : ''}`}>
+              <a 
+                href="#" 
+                className="dropdown-toggle" 
+                id="navDropdownToggle"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setIsDropdownOpen(!isDropdownOpen);
+                }}
+              >
+                Giriş Yap <span style={{ fontSize: '0.8em' }}>▼</span>
+              </a>
+              <ul className="dropdown-menu">
+                <li>
+                  <Link to="/uye-giris" onClick={() => { setIsMenuOpen(false); setIsDropdownOpen(false); }}>Üye Girişi</Link>
+                </li>
+                <li>
+                  <Link to="/esnaf-giris" onClick={() => { setIsMenuOpen(false); setIsDropdownOpen(false); }}>Esnaf Girişi</Link>
+                </li>
+              </ul>
+            </li>
+          )}
         </ul>
 
         <div className="nav-right">

@@ -1,27 +1,24 @@
 /* ======================================================
-   SiirtEsnafCep — Auth (Login & Register) Styles
+   SiirtEsnafCep — Auth (Login & Register) Kurumsal v2
    ====================================================== */
 
 .auth-section {
-  min-height: calc(100vh - 80px);
+  min-height: calc(100vh - var(--nav-h));
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8rem 1rem 4rem;
-  position: relative;
-  overflow: hidden;
+  padding: 6rem 1rem 4rem;
+  background: var(--bg);
 }
 
 .auth-container {
   width: 100%;
-  max-width: 480px;
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: var(--radius-lg);
-  padding: 3rem;
-  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+  max-width: 440px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 2.2rem;
+  box-shadow: var(--sh-hover);
   position: relative;
   z-index: 5;
 }
@@ -29,135 +26,151 @@
 /* Tab Headers */
 .auth-tabs {
   display: flex;
-  margin-bottom: 2.5rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 2rem;
+  border-bottom: 1.5px solid var(--border);
 }
 
 .auth-tab {
   flex: 1;
   text-align: center;
-  padding: 1rem 0;
-  font-weight: 600;
-  font-size: 1.1rem;
-  color: var(--text-muted);
+  padding: 0.85rem 0;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--txt-3);
   cursor: pointer;
-  transition: all 0.3s ease;
+  background: none;
+  border: none;
+  transition: all var(--t);
   position: relative;
 }
 
+.auth-tab:hover {
+  color: var(--primary);
+}
+
 .auth-tab.active {
-  color: var(--text-light);
+  color: var(--primary);
 }
 
 .auth-tab.active::after {
   content: '';
   position: absolute;
-  bottom: -1px;
+  bottom: -1.5px;
   left: 0;
   width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, var(--clr-orange), var(--clr-red));
+  height: 2.5px;
+  background: var(--primary);
   border-radius: 2px 2px 0 0;
 }
 
 /* Forms */
 .auth-form {
   display: none;
-  animation: fadeIn 0.4s ease forwards;
+  animation: fadeIn 0.3s ease forwards;
 }
 
 .auth-form.active {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
 }
 
 .form-group {
-  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
 }
 
 .form-group label {
-  display: block;
-  font-size: 0.95rem;
-  color: var(--text-muted);
-  margin-bottom: 0.5rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--txt-2);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .form-control {
   width: 100%;
-  padding: 1rem 1.2rem;
-  background: rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: var(--radius-md);
-  color: var(--text-light);
-  font-size: 1rem;
-  transition: all 0.3s ease;
+  padding: 0.65rem 0.9rem;
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-sm);
+  color: var(--txt);
+  font-size: 0.9rem;
+  font-family: inherit;
+  transition: border-color var(--t), box-shadow var(--t);
 }
 
 .form-control:focus {
   outline: none;
-  border-color: var(--clr-orange);
-  background: rgba(0, 0, 0, 0.4);
-  box-shadow: 0 0 0 3px rgba(249,115,22,0.15);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-bg);
 }
 
 .form-select {
   appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%239ca3af'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%234A4A52'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
   background-repeat: no-repeat;
-  background-position: right 1rem center;
-  background-size: 1rem;
+  background-position: right 0.9rem center;
+  background-size: 0.9rem;
+  cursor: pointer;
 }
 
 .form-select option {
-  background: var(--bg-color);
-  color: var(--text-light);
+  background: var(--surface);
+  color: var(--txt);
 }
 
 .auth-btn {
   width: 100%;
-  padding: 1.1rem;
+  padding: 0.72rem;
   border: none;
-  border-radius: var(--radius-md);
-  background: linear-gradient(135deg, var(--clr-orange), var(--clr-red));
+  border-radius: var(--r-sm);
+  background: var(--primary);
   color: #fff;
-  font-weight: 600;
-  font-size: 1.1rem;
+  font-weight: 700;
+  font-size: 0.95rem;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  margin-top: 1rem;
+  box-shadow: 0 2px 8px rgba(27,58,107,0.25);
+  transition: background var(--t), box-shadow var(--t), transform var(--t);
+  margin-top: 0.5rem;
 }
 
 .auth-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px -10px var(--clr-red);
+  background: var(--primary-h);
+  box-shadow: 0 5px 16px rgba(27,58,107,0.35);
+  transform: translateY(-1px);
+}
+
+.auth-btn:active {
+  transform: translateY(0);
 }
 
 .auth-footer {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   text-align: center;
-  font-size: 0.9rem;
-  color: var(--text-muted);
+  font-size: 0.85rem;
+  color: var(--txt-3);
 }
 
 .auth-footer a {
-  color: var(--clr-orange);
+  color: var(--primary);
   text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
+  font-weight: 600;
+  transition: opacity var(--t);
 }
 
 .auth-footer a:hover {
-  color: var(--text-light);
-  text-decoration: underline;
+  opacity: 0.8;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(15px); }
+  from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Responsive */
 @media (max-width: 480px) {
   .auth-container {
-    padding: 2rem 1.5rem;
+    padding: 1.5rem;
   }
 }
