@@ -1,0 +1,163 @@
+/* ======================================================
+   SiirtEsnafCep — Auth (Login & Register) Styles
+   ====================================================== */
+
+.auth-section {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8rem 1rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-container {
+  width: 100%;
+  max-width: 480px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  padding: 3rem;
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+  position: relative;
+  z-index: 5;
+}
+
+/* Tab Headers */
+.auth-tabs {
+  display: flex;
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.auth-tab {
+  flex: 1;
+  text-align: center;
+  padding: 1rem 0;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.auth-tab.active {
+  color: var(--text-light);
+}
+
+.auth-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--clr-orange), var(--clr-red));
+  border-radius: 2px 2px 0 0;
+}
+
+/* Forms */
+.auth-form {
+  display: none;
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.auth-form.active {
+  display: block;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.form-control {
+  width: 100%;
+  padding: 1rem 1.2rem;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  color: var(--text-light);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--clr-orange);
+  background: rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 0 3px rgba(249,115,22,0.15);
+}
+
+.form-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%239ca3af'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1rem;
+}
+
+.form-select option {
+  background: var(--bg-color);
+  color: var(--text-light);
+}
+
+.auth-btn {
+  width: 100%;
+  padding: 1.1rem;
+  border: none;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--clr-orange), var(--clr-red));
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 1rem;
+}
+
+.auth-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px -10px var(--clr-red);
+}
+
+.auth-footer {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.auth-footer a {
+  color: var(--clr-orange);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.auth-footer a:hover {
+  color: var(--text-light);
+  text-decoration: underline;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .auth-container {
+    padding: 2rem 1.5rem;
+  }
+}
