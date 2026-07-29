@@ -1390,4 +1390,53 @@ button { cursor: pointer; font-family: inherit; }
 @media (max-width: 768px) {
   .ads-layout { flex-direction: column; }
   .ads-sidebar-panel { width: 100%; position: static; }
+  
+  /* Esnaflar sayfası filtreleri mobilde alt alta gelsin ve tam genişlik kaplasın */
+  .mpage-filters {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+    padding: 1rem;
+  }
+  .mpage-search-wrap {
+    width: 100%;
+  }
+  .mpage-select {
+    width: 100%;
+  }
+  .mpage-filters .btn-outline {
+    width: 100%;
+    justify-content: center;
+  }
 }
+
+@media (max-width: 600px) {
+  /* Başlık ve 'Tümünü Gör' linki mobilde üst üste düzgünce hizalansın */
+  .home-section-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+    margin-bottom: 1.5rem;
+  }
+  .hs-link {
+    align-self: flex-end;
+    font-size: 0.8rem;
+  }
+  
+  /* Hero başlığı mobilde biraz daha küçülsün */
+  .hero-title {
+    font-size: 1.8rem;
+  }
+  
+  /* Butonların mobilde tık alanı daha geniş olsun */
+  .uc-actions, .mc-actions {
+    width: 100%;
+  }
+  .uc-actions .btn-sm, .mc-actions .btn-sm {
+    flex: 1;
+    text-align: center;
+    justify-content: center;
+    padding: 0.5rem 0.8rem;
+  }
+}
+
