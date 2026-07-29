@@ -1,26 +1,41 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const AdCard = ({ price, image, title, location, date, merchantAvatar, merchantName, merchantType, isVerified, delay }) => {
+const AdCard = ({ price, image, title, location, date, merchantAvatar, merchantName, merchantType, isVerified }) => {
   return (
-    <div className="ad-card" data-aos="fade-up" data-aos-delay={delay || 0}>
-      <div className="adc-price">{price} ₺</div>
-      <img src={image} alt={title} className="adc-img" />
+    <div className="adc-card">
+      <div className="adc-image-wrap">
+        <img src={image} alt={title} className="adc-img" />
+        {price && (
+          <span className="adc-price-badge">
+            {Number(price).toLocaleString('tr-TR')} ₺
+          </span>
+        )}
+        <span className="adc-new-badge">Yeni</span>
+      </div>
+
       <div className="adc-body">
         <h3 className="adc-title">{title}</h3>
+
         <div className="adc-meta">
-          <span>📍 {location}</span>
-          <span>📅 {date}</span>
+          <span className="adc-meta-item">📍 {location}</span>
+          <span className="adc-meta-item">📅 {date}</span>
         </div>
-        <div className="adc-merchant">
-          <div className="adc-m-avatar">{merchantAvatar}</div>
-          <div className="adc-m-info">
-            <div className="adc-m-name">{merchantName} {isVerified && <span style={{color:'#10b981'}}>✅</span>}</div>
-            <div className="adc-m-type">{merchantType}</div>
+
+        <div className="adc-footer">
+          <div className="adc-merchant">
+            <span className="adc-m-avatar">{merchantAvatar}</span>
+            <div>
+              <div className="adc-m-name">
+                {merchantName}
+                {isVerified && <span className="adc-verified"> ✓</span>}
+              </div>
+              <div className="adc-m-type">{merchantType}</div>
+            </div>
           </div>
+          <Link to="/esnaf-profil" className="btn-primary btn-sm">İncele</Link>
         </div>
       </div>
-      <Link to="/esnaf-profil" style={{position: 'absolute', inset: 0, zIndex: 1}}></Link>
     </div>
   );
 };
