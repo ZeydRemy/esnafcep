@@ -3,30 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SiirtEsnafCep — Şehrin Esnafı, Siirtlinin Cebinde!</title>
+    <title>SiirtEsnafCep — Siirt'in Yerel Esnaf Platformu</title>
     <meta name="description" content="SiirtEsnafCep: Siirt'in en kapsamlı yerel esnaf ve hizmet platformu. Çekici, taksi, çilingir, mobilya, emlak ve daha fazlası tek tıkla yanınızda." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <link rel="icon" type="image/png" href="/icon.png" />
-    <script>
-      window.addEventListener('error', function(e) {
-        var errDiv = document.createElement('div');
-        errDiv.style.position = 'fixed';
-        errDiv.style.top = '0';
-        errDiv.style.left = '0';
-        errDiv.style.width = '100%';
-        errDiv.style.background = 'red';
-        errDiv.style.color = 'white';
-        errDiv.style.padding = '20px';
-        errDiv.style.zIndex = '99999';
-        errDiv.style.fontFamily = 'monospace';
-        errDiv.innerHTML = '<h2>React Hata Algılandı:</h2><p>' + e.message + '</p><p>Dosya: ' + e.filename + ' Line: ' + e.lineno + '</p>';
-        document.body.appendChild(errDiv);
-      });
-    </script>
   </head>
-  <body class="dark-theme">
+  <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

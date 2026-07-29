@@ -6,51 +6,62 @@ const Footer = () => {
     <footer className="footer" id="iletisim">
       <div className="container">
         <div className="footer-grid">
-          <div className="footer-col brand-col">
-            <div className="footer-logo">
-              <img src="/icon.png" alt="SiirtEsnafCep" className="footer-logo-img" /> SiirtEsnafCep
+          {/* Marka */}
+          <div>
+            <div className="footer-logo-row">
+              <img src="/icon.png" alt="SiirtEsnafCep" className="footer-logo-img" />
+              <span className="footer-brand-text">SiirtEsnafCep</span>
             </div>
-            <p className="footer-desc">Siirt'in en kapsamlı yerel esnaf ve hizmet platformu. Güvenli, hızlı ve şeffaf.</p>
-            <div className="footer-socials">
-              <a href="#" aria-label="Instagram">📷</a>
-              <a href="#" aria-label="Facebook">👥</a>
-              <a href="#" aria-label="Twitter/X">🐦</a>
-              <a href="#" aria-label="WhatsApp">💬</a>
+            <p className="footer-desc">
+              Siirt'in en kapsamlı yerel esnaf ve hizmet platformu. Güvenli, hızlı ve şeffaf bir şekilde ihtiyacınız olan ustayı bulun.
+            </p>
+            <div className="footer-contact">
+              <a href="tel:08501234567">📞 0850 123 45 67</a>
+              <a href="mailto:info@siirtesnafcep.com">✉ info@siirtesnafcep.com</a>
+              <a href="#">📍 Siirt Merkez, Türkiye</a>
             </div>
           </div>
-          <div className="footer-col">
-            <h4 className="footer-col-title">Kategoriler</h4>
-            <ul>
-              <li><Link to="/hizmet/cekici">Çekici Hizmeti</Link></li>
-              <li><Link to="/hizmet/taksi">Taksi</Link></li>
-              <li><Link to="/hizmet/cilingir">Çilingir</Link></li>
-              <li><Link to="/hizmet/mobilya">Mobilya</Link></li>
-              <li><Link to="/hizmet/emlak">Emlak</Link></li>
-              <li><Link to="/hizmet/telefon">Telefon Tamir</Link></li>
-              <li><Link to="/hizmet/galeri">Galerici</Link></li>
-              <li><Link to="/hizmet/oto">Oto Yol Yardım</Link></li>
-            </ul>
+
+          {/* Hizmetler */}
+          <div>
+            <h4 className="footer-col-title">Popüler Hizmetler</h4>
+            <div className="footer-links">
+              <Link to="/hizmet/cekici">Çekici Hizmeti</Link>
+              <Link to="/hizmet/taksi">Taksi</Link>
+              <Link to="/hizmet/cilingir">Çilingir</Link>
+              <Link to="/hizmet/elektrik">Elektrikçi</Link>
+              <Link to="/hizmet/tesisat">Su Tesisatçısı</Link>
+              <Link to="/hizmet/mobilya">Mobilya</Link>
+            </div>
           </div>
-          <div className="footer-col">
+
+          {/* Platform */}
+          <div>
+            <h4 className="footer-col-title">Platform</h4>
+            <div className="footer-links">
+              <Link to="/kategoriler">Tüm Kategoriler</Link>
+              <Link to="/esnaflar">Esnaflar</Link>
+              <Link to="/ilanlar">İlanlar</Link>
+              <Link to="/esnaf-giris">Esnaf Girişi</Link>
+              <Link to="/uye-giris">Üye Girişi</Link>
+            </div>
+          </div>
+
+          {/* Kurumsal */}
+          <div>
             <h4 className="footer-col-title">Kurumsal</h4>
-            <ul>
-              <li><a href="#">Hakkımızda</a></li>
-              <li><Link to="/gizlilik-politikasi">Gizlilik Politikası</Link></li>
-              <li><Link to="/kullanici-sozlesmesi">Kullanıcı Sözleşmesi</Link></li>
-            </ul>
-          </div>
-          <div className="footer-col">
-            <h4 className="footer-col-title">İletişim</h4>
-            <ul className="contact-list">
-              <li>📞 <a href="tel:08501234567">0850 123 45 67</a></li>
-              <li>📧 <a href="mailto:info@siirtesnafcep.com">info@siirtesnafcep.com</a></li>
-              <li>📍 Siirt Merkez, Türkiye</li>
-              <li>🕐 7/24 Acil Hat</li>
-            </ul>
+            <div className="footer-links">
+              <a href="#">Hakkımızda</a>
+              <Link to="/gizlilik-politikasi">Gizlilik Politikası</Link>
+              <Link to="/kullanici-sozlesmesi">Kullanıcı Sözleşmesi</Link>
+              <a href="#">İletişim</a>
+            </div>
           </div>
         </div>
+
         <div className="footer-bottom">
-          <p>© 2026 SiirtEsnafCep. Tüm hakları saklıdır. | Siirt'in Dijital Çarşısı</p>
+          <span>© 2026 SiirtEsnafCep. Tüm hakları saklıdır.</span>
+          <span>Siirt'in Yerel Esnaf Platformu</span>
         </div>
       </div>
     </footer>
